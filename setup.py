@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='PyVec',
+    name='ShiVec',
     version='v0.1',
     packages=[''],
-    url='https://github.com/ShisatOwO/PyVec',
+    url='https://github.com/ShisatOwO/ShiVec',
     license='MIT License',
     author='Shisato',
     author_email='',
-    description='PyVec is a simple python package for working with vectors.'
+    description='ShiVec is a simple python package for working with vectors.'
 )
