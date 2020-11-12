@@ -94,7 +94,7 @@ class ShiVec:
     def _operation_nov(self, code, *args, **kwargs):
         """Applies macros to the vector than executes, the method passed trough the code argument and finally updates the macros"""
         self._apply_macros_to_vec()
-        out = code(args, kwargs)
+        out = code(*args, **kwargs)
         self._apply_vec_to_macros()
         return out
 
