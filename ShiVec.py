@@ -104,12 +104,23 @@ class ShiVec:
         self._apply_vec_to_macros()
         return out
 
-    # TODO: nur einen bestimmten index des vectors zurückgeben
-    # TODO: macros als index verwenden können
-    def get_vec(self):
-        """Returns Vector as a tuple"""
+    def get_vec(self, iindex=None):
+        """Returns Vector as a tuple, or a specified index"""
+        i = iindex
         self._apply_macros_to_vec()
-        return tuple(self._vec)
+        if iindex is None:
+            return tuple(self._vec)
+        if iindex in self._macros:
+            i = self._macros.index(iindex)
+        return self._vec[i]
+
+    def set_vec(self, iindex, val):
+        """Sets index iindex of the vector to val"""
+        i = iindex
+        if iindex in self._macros:
+            i = self._macros.index(iindex)
+        self._vec[i] = val
+        self._apply_vec_to_macros()
 
     def add(self, other):
         """Adds this vector and another ShiVec vector, vectors must have the same size"""
