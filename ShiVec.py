@@ -5,7 +5,11 @@ ShiVec: Written by Shisato (https://github.com/ShisatOwO/) and Licensed under th
 
 import math
 
-# TODO: Eine Methode um zu überprüfen ob ein objekt ein ShiVec objekt ist, onf ggf ein Fehler werfen, diese methode in alle methoden die ein anderen vector und _operation_nov benutzen ein bauen
+
+def is_shivec(other):
+    if not isinstance(other, ShiVec):
+        raise Exception("[ShiVec] " + str(other) + " is not a ShiVec object")
+    return True
 
 
 class ShiVec:
@@ -34,13 +38,16 @@ class ShiVec:
 
         # Are the macros valid ?
         if not isinstance(self._macros, tuple) and not isinstance(self._macros, list):
-            raise Exception("[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty. For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
+            raise Exception("[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty. "
+                            "For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
         for m in self._macros:
             if not isinstance(m, str) or m == "":
-                raise Exception("[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty. For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
+                raise Exception("[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty."
+                                " For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
             if not m[0].isalpha():
                 raise Exception(
-                    "[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty. For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
+                    "[ShiVec] Macros must be strings contained in a tuple or list.They also must not start with a number/punctuation mark or be empty."
+                    " For example ShiVec(size=3, macros=(\"r\", \"g\", \"b\") is a valid call")
 
         # Is the default value valid ?
         if not isinstance(self._deflt, int) and not isinstance(self._deflt, float):
@@ -77,10 +84,9 @@ class ShiVec:
 
     def _check_size(self, other):
         """Checks whether the given parameter is a ShiVec object or not, and if its size matches with _size."""
-        if not isinstance(other, ShiVec):
-            raise Exception(str(other) + " is not a ShiVec object")
+        is_shivec(other)
         if self._size != other._size:
-            raise Exception("The Size of the Vectors does not match")
+            raise Exception("[ShiVec] The Size of the Vectors does not match")
 
     def _operation(self, other, code):
         """Makes working with other vector easier, checks if the other vectors size is ok and applies macros and updates macros, it executes code passed as function taking the other vector as parameter
