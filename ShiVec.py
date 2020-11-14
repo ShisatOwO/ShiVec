@@ -189,4 +189,26 @@ class ShiVec:
             return v
         return self._operation_nov(code)
 
+    def __str__(self):
+        return str(self.get_vec())
 
+    def __iter__(self):
+        return iter(self.get_vec())
+
+    def __add__(self, other):
+        v = self.duplicate()
+        v.add(other)
+        return v
+
+    def __sub__(self, other):
+        v = self.duplicate()
+        v.sub(other)
+        return v
+
+    def __mul__(self, other):
+        v = self.duplicate()
+        if isinstance(other, ShiVec):
+            v.mul(other)
+        else:
+            v.scalar(other)
+        return v
