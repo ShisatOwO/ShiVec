@@ -6,6 +6,6 @@ write a proper one I could use in all of my projects. My goal was to make it fle
 publish, it is also a way for me to learn about developing and publishing software, so feedback is highly appreciated :)
 
 ### Installation (python 3.8 and up)
-""" cmd
+'''shell
 pip install ShiVec
-"""
+'''
