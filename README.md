@@ -9,3 +9,14 @@ publish, it is also a way for me to learn about developing and publishing softwa
 ```python
 pip install ShiVec
 ```
+
+### Quick example
+```python
+from ShiVec import ShiVec
+
+# Declaring a new vector "vecA"
+vecA = ShiVec(1, 2, 3)
+
+# Declaring a new vector "vecB" by specifying it's size
+vecB = ShiVec(size=3)
+```
