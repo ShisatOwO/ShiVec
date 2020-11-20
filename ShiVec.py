@@ -73,7 +73,8 @@ class ShiVec:
     def _apply_macros_to_vec(self):
         """Overwrites specific entries of _vec with its corresponding macro, this should be done everytime before something is done with _vec."""
         for i in range(len(self._macros)):
-            if (x := getattr(self, self._macros[i], None)) is None:
+            x = getattr(self, self._macros[i], None)
+            if x is None:
                 raise Exception("Something went really wrong while trying to apply macros to the Vector")
             self._vec[i] = x
 
