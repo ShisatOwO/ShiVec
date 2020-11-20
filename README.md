@@ -5,7 +5,7 @@ I always kind of skipped writing a vector implementation for my programs or just
 write a proper one I could use in all of my projects. My goal was to make it flexible and easy to use. Since ShiVec is the first project of mine that I want to 
 publish, it is also a way for me to learn about developing and publishing software, so feedback is highly appreciated :)
 
-### Installation (Python 3.8 and up)
+### Installation (Python 3)
 ```python
 pip install ShiVec
 ```
